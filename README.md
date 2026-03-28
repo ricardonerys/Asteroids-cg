@@ -140,7 +140,7 @@ O jogo segue o padrão clássico de loop:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
+https://github.com/ricardonerys/Asteroids-cg.git
 ```
 
 2. Abra o arquivo:
