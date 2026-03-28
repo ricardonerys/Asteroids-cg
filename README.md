@@ -100,8 +100,10 @@ T → Operação → T⁻¹
 📁 projeto-asteroids
 │
 ├── index.html
-├── game.js
+├── asteroide.js
+├── style.css
 └── README.md
+
 ```
 
 ---
