@@ -1,6 +1,6 @@
 const canvas = document.getElementById("asteroide");
 const ctx = canvas.getContext("2d");
-
+let tempo = 0;
 let player = {
     x: canvas.width / 2,
     y: canvas.height / 2,
@@ -62,12 +62,18 @@ function drawPlayer() {
 }
 
 function drawAsteroide(a) {
+    ctx.save();
+    let escala = 1 + Math.sin(tempo) * 0.2;
+    ctx.translate(a.x, a.y); 
+    ctx.scale(escala, escala);     
+    ctx.translate(-a.x, -a.y); 
     ctx.beginPath();
     ctx.arc(a.x, a.y, a.size, 0, Math.PI * 2);
     ctx.fillStyle = "gray";
     ctx.fill();
-}
 
+    ctx.restore();
+}
 function drawTiros() {
     ctx.fillStyle = "red";
     tiros.forEach(t => {
@@ -79,7 +85,7 @@ function update() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    
+    tempo += 0.05;
     drawPlayer();
 
     asteroides.forEach(a => {
@@ -146,8 +152,8 @@ function update() {
 document.addEventListener("keydown", (e) => {
     if (gameOver) return;
 
-    if (e.key === "ArrowLeft") player.angle -= 0.1; 
-    if (e.key === "ArrowRight") player.angle += 0.1;
+    if (e.key === "ArrowLeft") player.angle -= 0.3; 
+    if (e.key === "ArrowRight") player.angle += 0.3;
 
     if (e.key === "ArrowUp") {
         player.x += Math.cos(player.angle) * 5;
