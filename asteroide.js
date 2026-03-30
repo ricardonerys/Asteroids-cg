@@ -101,9 +101,6 @@ function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     tempo += 0.05;
 
-    // =========================
-    // CONTROLES CONTÍNUOS
-    // =========================
     if (keys["ArrowLeft"]) player.angle -= 0.07;
     if (keys["ArrowRight"]) player.angle += 0.07;
 
@@ -117,9 +114,6 @@ function update() {
         player.velY *= 0.95;
     }
 
-    // =========================
-    // LIMITE DE VELOCIDADE
-    // =========================
     let maxSpeed = 5;
     let speed = Math.sqrt(player.velX ** 2 + player.velY ** 2);
 
@@ -128,18 +122,13 @@ function update() {
         player.velY *= maxSpeed / speed;
     }
 
-    // =========================
-    // MOVIMENTO + ATRITO
-    // =========================
+
     player.x += player.velX;
     player.y += player.velY;
 
     player.velX *= 0.99;
     player.velY *= 0.99;
 
-    // =========================
-    // WRAP DA TELA
-    // =========================
     if (player.x < 0) player.x = canvas.width;
     if (player.x > canvas.width) player.x = 0;
     if (player.y < 0) player.y = canvas.height;
@@ -147,9 +136,6 @@ function update() {
 
     drawPlayer();
 
-    // =========================
-    // ASTEROIDES
-    // =========================
     asteroides.forEach(a => {
         a.x += a.speedX;
         a.y += a.speedY;
@@ -162,9 +148,6 @@ function update() {
         drawAsteroide(a);
     });
 
-    // =========================
-    // TIROS
-    // =========================
     for (let i = tiros.length - 1; i >= 0; i--) {
         tiros[i].x += tiros[i].speedX;
         tiros[i].y += tiros[i].speedY;
@@ -220,9 +203,6 @@ function update() {
     requestAnimationFrame(update);
 }
 
-// =========================
-// INPUT
-// =========================
 document.addEventListener("keydown", (e) => {
     keys[e.key] = true;
 
@@ -235,5 +215,4 @@ document.addEventListener("keyup", (e) => {
     keys[e.key] = false;
 });
 
-// inicia
 update();
