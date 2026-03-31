@@ -175,7 +175,7 @@ index.html
 
 ## 👨‍💻 Autores
 
-Desenvolvido por **Willian Rodrigues e Ricardo Nery**
+Desenvolvido por **Willian Rodrigues,  Ricardo Nery e Tarsila Amado**
 Projeto acadêmico de Computação Gráfica
 
 ---
